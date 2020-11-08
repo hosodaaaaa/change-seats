@@ -1,0 +1,28 @@
+{
+  "name": "change-seats",
+  "version": "1.0.0",
+  "description": "席替えアプリ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rm -R app/* ; parcel './assets/**/!(_)*.pug' --out-dir app/",
+    "build": "rm -R app/* ; parcel build './assets/**/!(_)*.pug' --out-dir app/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hosodaaaaa/change-seats.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hosodaaaaa/change-seats/issues"
+  },
+  "homepage": "https://github.com/hosodaaaaa/change-seats#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "parcel-bundler": "^1.12.4",
+    "pug": "^3.0.0",
+    "stylus": "^0.54.8"
+  }
+}

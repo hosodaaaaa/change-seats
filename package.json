@@ -4,6 +4,8 @@
   "description": "席替えアプリ",
   "main": "index.js",
   "scripts": {
+    "dev": "rm -R app/* ; parcel './assets/**/!(_)*.pug' --out-dir app/",
+    "build": "rm -R app/* ; parcel build './assets/**/!(_)*.pug' --out-dir app/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

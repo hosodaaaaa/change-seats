@@ -189,22 +189,49 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"styles/main.styl":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"styles/main.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 require("./styles/sanitize.css");
 
-require("./styles/main.styl");
+require("./styles/main.css");
 
-window.addEventListener("DOMContentLoaded", function () {
-  console.log("Hello World");
+var members = ['菅野さん', '浦さん', '横山さん', '佐久間さん', '山本さん', '小山さん', '小野さん', '渡辺さん', '細田'];
+
+var shuffleMembers = function shuffleMembers(members) {
+  for (var i = members.length - 1; i >= 0; i--) {
+    var shuffle = Math.floor(Math.random() * (i + 1));
+    var _ref = [members[shuffle], members[i]];
+    members[i] = _ref[0];
+    members[shuffle] = _ref[1];
+  }
+
+  return members;
+};
+
+window.addEventListener('DOMContentLoaded', function () {
+  var shuffleTarget = document.querySelector('.shuffle');
+  shuffleTarget.addEventListener('click', function () {
+    shuffleMembers(members).forEach(function (membersArr) {
+      var getPutArea = document.createElement('div');
+      getPutArea.innerHTML = "".concat(membersArr);
+      document.querySelector('.member-box').appendChild(getPutArea);
+    });
+    shuffleTarget.style.pointerEvents = 'none';
+  });
+  document.querySelector('.reset').addEventListener('click', function () {
+    document.querySelectorAll('.member-box div').forEach(function (dom) {
+      dom.remove();
+    });
+    shuffleTarget.style.pointerEvents = 'auto';
+  });
 });
-},{"./styles/sanitize.css":"styles/sanitize.css","./styles/main.styl":"styles/main.styl"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./styles/sanitize.css":"styles/sanitize.css","./styles/main.css":"styles/main.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -232,7 +259,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56473" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62851" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -408,5 +435,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/assets.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
+//# sourceMappingURL=/app.c328ef1a.js.map
